@@ -1,0 +1,247 @@
+:root {
+	--color-offwhite: #0D0D0D;
+}
+body {
+	background-color: var(--color-offwhite);
+}
+
+/* HERO IMAGE */
+
+.heroimage {
+	width: 100%;
+	background-image: url("../img/cake.jpg");
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+
+/* HEADER */
+
+.freeship {
+	text-align: center;
+	background-color: #F2F2F2;
+	padding: 10px 0;
+}
+
+.freeship h3 {
+	font-family: 'Oxygen', sans-serif;
+	margin: 0 auto;
+	font-size: 0.9em;
+
+}
+
+/* TITLE */
+
+.title {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.title h1 {
+	font-family: 'Italiana', serif;
+	color: #ffffff;
+	font-size: 4em;
+	font-weight: bolder;
+}
+
+/* ABSTRACT */
+
+.abstract {
+	position: absolute;
+	top: 32%;
+	left: 10%;
+	width: 30%;
+
+}
+
+.abstract h2 {
+	color: white;
+	font-family: Didot, serif;
+	font-weight: lighter;
+	font-size: 2em;	
+	text-align: center;
+}
+
+.abstract p {
+	color: white;
+	font-family: 'Josefin Sans', sans-serif;
+	line-height: 150%;
+}
+
+.abstract button, .menu {
+	margin: 10% auto;
+	width: 50%;
+	height: 6vh;
+	background-color: white;
+	color: #0D0D0D;
+	display: inherit;
+	font-size: 2vh;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 700;
+	border: none;
+	transition: all 0.5s;
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.abstract button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.abstract button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.abstract button:hover span {
+	padding-right: 25px;
+}
+
+.abstract button:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+.abstract button:focus {
+	outline: none;
+}
+
+/* NAVBAR */
+
+.sticky {
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+}
+
+.navbar {
+	overflow: hidden;
+	background-color: #F2F2F2;
+	width: 100%;
+	color: #0D0D0D;
+	padding: 0 5%;
+	box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+}
+
+.nav {
+	text-align: center;
+}
+
+.nav ul li {
+	font-family: 'Oxygen', sans-serif;
+	font-weight: lighter;
+	font-size: 1em;
+	display: inline-block;
+}
+
+.nav a:hover {
+	color: #0D0D0D;
+	text-decoration: none;
+}
+
+
+/* ORDER */
+
+.order {
+	color: white;
+	margin: 8vh auto 4vh auto;
+	font-family: 'Oxygen', sans-serif;
+	font-weight: 300;
+	text-align: center;
+
+}
+
+.card {
+	background-color: #0D0D0D;
+}
+
+.card img {
+	transition: transform 1s;
+}
+
+.card img:hover {
+	transform: scale(1.05);
+	cursor: pointer;
+}
+
+.card h5 {
+	text-align: center;
+	color: #F2F2F2;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 500;
+}
+
+.card p {
+	color: #F2F2F2;
+	text-align: center;
+	font-family: Didot, serif;
+}
+
+
+
+.addtocart {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 200;
+	border: none;
+	height: 4.5vh;
+	border-radius: 5px;
+	transition: background-color 0.2s ease;
+	background-color: white;
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.addtocart:hover, .menu:hover {
+	background-color: #E0E0E0;
+}
+
+.addtocart:focus, .menu:focus {
+	outline: none;
+}
+
+.dropdownmenu {
+	padding: 3vh 0;
+}
+
+.menu {
+	margin: 1vh auto;
+	width: 80%;
+	text-align: right;
+	font-weight: 200;
+	height: 4vh;
+}
+
+.menu:focus {
+	background-color: #595959;
+	color: #f2f2f2;
+}
+
+.footer {
+	margin: 0;
+	height: 3vh;
+	padding: 3vh 10%;
+	color: #F2F2F2;
+	text-align: center;
+	font-family: 'Oxygen', sans-serif;
+	font-size: 0.7em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
