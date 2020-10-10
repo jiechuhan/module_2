@@ -3,4 +3,4 @@
 
 ##Relavent Links
 http://jiechuhan.com
-http://jiechuhan.com/aau/wnm_608/wnm608_styleguide/styleguide/
+http://jiechuhan.com/aau/wnm_608/module_2/
