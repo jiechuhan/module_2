@@ -1,9 +1,24 @@
 :root {
-	--color-offwhite: #0D0D0D;
+	--color-neutral-light: #F2F2F2;
+	--color-neutral-lightmedium: #A6A6A6;
+	--color-neutral-medium: #595959;
+	--color-neutral-mediumdark: #262626;
+	--color-neutral-dark: #0D0D0D;
+
+	--color-black: #000000;
+	--color-white: #ffffff;
 }
+
 body {
-	background-color: var(--color-offwhite);
+	background-color: var(--color-neutral-dark);
+/*	color: var(--color-white);*/
+	padding-bottom: 2em;
 }
+
+h4 {
+	color: var(--color-white)
+}
+
 
 /* HERO IMAGE */
 .heroimage {
@@ -15,32 +30,30 @@ body {
 	background-position: center;
 }
 
+
 /* HEADER */
 .freeship {
 	text-align: center;
-	background-color: #F2F2F2;
+	background-color: var(--color-neutral-light);
 	padding: 10px 0;
 }
 
 .freeship h3 {
-	font-family: 'Oxygen', sans-serif;
 	margin: 0 auto;
-	font-size: 0.9em;
-
 }
+
 
 /* TITLE */
 .title {
 	text-align: center;
 	margin-top: 70px;
+	color: var(--color-white);
 }
 
 .title h1 {
-	font-family: 'Italiana', serif;
-	color: #ffffff;
-	font-size: 4em;
 	font-weight: bolder;
 }
+
 
 /* ABSTRACT */
 .abstract {
@@ -49,39 +62,13 @@ body {
 
 .abstract h2 {
 	color: white;
-	font-family: Didot, serif;
-	font-weight: lighter;
-	font-size: 2em;	
+	font-weight: lighter;	
 	text-align: center;
 }
 
 .abstract p {
 	color: white;
-	font-family: 'Josefin Sans', sans-serif;
 	line-height: 150%;
-	font-weight: 200;
-}
-
-.abstract button, .menu {
-	margin: 10% auto;
-	width: 50%;
-	height: 6vh;
-	background-color: white;
-	color: #0D0D0D;
-	display: inherit;
-	font-size: 2vh;
-	font-family: 'Josefin Sans', sans-serif;
-	font-weight: 700;
-	border: none;
-	transition: all 0.5s;
-	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
-}
-
-.abstract button span {
-	cursor: pointer;
-	display: inline-block;
-	position: relative;
-	transition: 0.5s;
 }
 
 .abstract button span:after {
@@ -102,9 +89,6 @@ body {
 	right: 0;
 }
 
-.abstract button:focus {
-	outline: none;
-}
 
 /* NAVBAR */
 .sticky {
@@ -113,39 +97,13 @@ body {
 	z-index: 1000;
 }
 
-.navbar {
-	overflow: hidden;
-	background-color: #F2F2F2;
-	width: 100%;
-	color: #0D0D0D;
-	padding: 0 5%;
-	box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
-}
-
-.nav {
-	text-align: center;
-}
-
-.nav ul li {
-	font-family: 'Oxygen', sans-serif;
-	font-weight: lighter;
-	font-size: 1em;
-	display: inline-block;
-}
-
-.nav a:hover {
-	color: #0D0D0D;
-	text-decoration: none;
-}
-
-
 /* ORDER */
 .order {
-	color: white;
+	color: var(--color-white);
 	margin: 8vh auto 4vh auto;
-	font-family: 'Oxygen', sans-serif;
 	font-weight: 300;
 	text-align: center;
+	font-size: 2.5rem;
 }
 
 /* MENU */
@@ -161,57 +119,27 @@ body {
 	height: 4vh;
 }
 
-.menu:focus {
-	background-color: #595959;
-	color: #f2f2f2;
-}
-
-/* CARD */
-.card {
-	background-color: #0D0D0D;
-}
-
-.card img {
-	transition: transform 1s;
-}
-
-.card img:hover {
-	transform: scale(1.05);
-	cursor: pointer;
-}
-
-.card h5 {
-	text-align: center;
-	color: #F2F2F2;
-	font-family: 'Josefin Sans', sans-serif;
-	font-weight: 500;
-}
-
-.card p {
-	color: #F2F2F2;
-	text-align: center;
-	font-family: Didot, serif;
-}
-
-/* BUTTON */
 .addtocart {
-	font-family: 'Josefin Sans', sans-serif;
+	color: var(--color-neutral-dark);
 	font-weight: 200;
-	border: none;
 	height: 4.5vh;
 	border-radius: 5px;
 	transition: background-color 0.2s ease;
-	background-color: white;
-	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+	width: 100%;
+	margin: 0;
 }
 
-.addtocart:hover, .menu:hover {
+.menu:hover, .addtocart:hover {
 	background-color: #E0E0E0;
 }
 
-.addtocart:focus, .menu:focus {
-	outline: none;
+.menu:focus {
+	background-color: var(--color-neutral-medium);
+	color: var(--color-neutral-light);
 }
+
+
+
 
 /* FOOTER */
 .footer {
@@ -231,8 +159,37 @@ body {
 
 
 
+.favorite label {
+	font-size: 2em;
+	transition: all 0.3s;
+	display: inline-block;
+	transform: scale(1, 1);
+	color: var(--color--netural-medium);
+}
+
+.favorite input:checked + label {
+	color: red;
+	transform: scale(1.3, 1.3);
+}
 
 
+@media (max-width: 800px) {
+	.container {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
 
+	.navbar h1 {
+		padding-left: 0.5em;
+	}
+}
 
+@media (max-width: 400px) {
+	.navbar .display-flex {
+		display: block;
+	}
 
+	.navbar .nav li {
+		line-height: 2em;
+	}
+}
