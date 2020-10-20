@@ -19,6 +19,17 @@ h4 {
 	color: var(--color-white)
 }
 
+/* NAVBAR */
+.navbar {
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+
+.main {
+	position: relative;
+}
+
 
 /* HERO IMAGE */
 .heroimage {

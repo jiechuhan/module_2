@@ -12,7 +12,7 @@
 
 	<div class="container content">
 
-		<h3 class="order">Order</h3>
+		<h1 class="order">Order</h1>
 
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 		    <div class="col dropdownmenu">

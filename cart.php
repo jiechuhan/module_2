@@ -10,6 +10,11 @@
 	
 	<?php include "parts/navbar.php"; ?>
 
+	<div class="container content">
+
+		<h1 class="order">SHOPPING CART</h1>
+	</div>
+
 
 	<div class="container">
 		<div class="card soft">
