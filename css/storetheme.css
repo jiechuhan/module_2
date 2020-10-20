@@ -34,8 +34,9 @@ h4 {
 /* HEADER */
 .freeship {
 	text-align: center;
-	background-color: var(--color-neutral-light);
+	background-color: var(--color-neutral-dark);
 	padding: 10px 0;
+	color: var(--color-neutral-light);
 }
 
 .freeship h3 {
@@ -71,7 +72,12 @@ h4 {
 	line-height: 150%;
 }
 
-.abstract button span:after {
+.abstract a span {
+	padding-top: 15px;
+}
+
+.abstract a span:after {
+	padding-top: 15px;
 	content: '\00bb';
 	position: absolute;
 	opacity: 0;
@@ -80,22 +86,16 @@ h4 {
 	transition: 0.5s;
 }
 
-.abstract button:hover span {
+.abstract a:hover span {
+	color: var(--color-neutral-dark);
 	padding-right: 25px;
 }
 
-.abstract button:hover span:after {
+.abstract a:hover span:after {
 	opacity: 1;
 	right: 0;
 }
 
-
-/* NAVBAR */
-.sticky {
-	position: fixed;
-	top: 0;
-	z-index: 1000;
-}
 
 /* ORDER */
 .order {

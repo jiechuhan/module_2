@@ -351,6 +351,7 @@ a:hover {
 	border: none;
 	transition: all 0.5s;
 	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+	text-align: center;
 }
 
 .form-button span {
