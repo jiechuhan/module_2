@@ -13,3 +13,6 @@
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="shortcut icon" href="img/cj.ico" type="image/x-icon"/>
 <script src="https://kit.fontawesome.com/b94e5be0e6.js" crossorigin="anonymous"></script>
+
+<!-- JQUERY -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

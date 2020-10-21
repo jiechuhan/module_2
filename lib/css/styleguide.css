@@ -58,7 +58,6 @@ h5 {
 
 h6 {
 	font-family: var(--font-title);
-
 }
 
 p {
@@ -129,7 +128,8 @@ a:hover {
 }
 
 .content {
-	margin-top: 2vh;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
 }
 
 .nav ul {

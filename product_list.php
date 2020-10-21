@@ -2,26 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Product List</title>
+	<title>Product List - C&J Bakery</title>
 
 	<?php include "parts/meta.php"; ?>
 </head>
 <body>
 	
 	<?php include "parts/navbar.php"; ?>
+	<?php include "parts/title.php"; ?>
 
 	<div class="container content">
+		
+		<h1 class="order">ORDER</h1>
 
-		<h1 class="order">Order</h1>
-
-		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-		    <div class="col dropdownmenu">
+		<div class="row">
+			<!-- row-cols-1 row-cols-sm-2 row-cols-md-4 -->
+		    <div class="col-sm-3 dropdownmenu">
 		    	<button type="button" class="dropdown-item form-button menu"><span>PICK-UP</span></button>
 		    	<button type="button" class="dropdown-item form-button menu"><span>DELIVERY</span></button>
 		    	<button type="button" class="dropdown-item form-button menu"><span>CURBSIDE PICK-UP</span></button>
 		    </div>
 
-		    <div class="col">
+		    <div class="col-sm-9 d-flex flex-wrap justify-content-left">
 		    	<div class="card dark">
 		    		<figure class="figure product-overlay">
 		    			<a href="product_item.php?id=1">
@@ -37,8 +39,60 @@
 
 			    <div class="card dark">
 			     	<figure class="figure product-overlay">
+						<a href="product_item.php?id=2">
+							<img src="img/2.jpg" class="card-img-top" alt="...">
+						</a>
+						<figcaption>
+				     		<h5 class="card-title">Card title</h5>
+				        	<p class="card-text">$50</p>
+						</figcaption>
+						<button class="form-button addtocart"><span>Add to cart</span></button>
+					</figure> 	
+			    </div>
+
+			    <div class="card dark">
+			     	<figure class="figure product-overlay">
+						<a href="product_item.php?id=3">
+							<img src="img/3.jpg" class="card-img-top" alt="...">
+						</a>
+						<figcaption>
+				     		<h5 class="card-title">Card title</h5>
+				        	<p class="card-text">$50</p>
+						</figcaption>
+						<button class="form-button addtocart"><span>Add to cart</span></button>
+					</figure> 	
+			    </div>
+
+			    <div class="card dark">
+			     	<figure class="figure product-overlay">
 			     		<a href="product_item.php?id=4">
 							<img src="img/4.jpg" class="card-img-top" alt="...">
+						</a>
+						<figcaption>
+				     		<h5 class="card-title">Card title</h5>
+				        	<p class="card-text">$50</p>
+						</figcaption>
+						<button class="form-button addtocart"><span>Add to cart</span></button>
+					</figure> 	
+			    </div>
+
+			     <div class="card dark">
+			     	<figure class="figure product-overlay">
+						<a href="product_item.php?id=5">
+							<img src="img/5.jpg" class="card-img-top" alt="...">
+						</a>
+						<figcaption>
+				     		<h5 class="card-title">Card title</h5>
+				        	<p class="card-text">$50</p>
+						</figcaption>
+						<button class="form-button addtocart"><span>Add to cart</span></button>
+					</figure> 	
+			    </div>
+
+			     <div class="card dark">
+			     	<figure class="figure product-overlay">
+						<a href="product_item.php?id=6">
+							<img src="img/6.jpg" class="card-img-top" alt="...">
 						</a>
 						<figcaption>
 				     		<h5 class="card-title">Card title</h5>
@@ -60,35 +114,7 @@
 						<button class="form-button addtocart"><span>Add to cart</span></button>
 					</figure> 	
 			    </div>
-		    </div>
-
-		    <div class="col">
-		    	<div class="card dark">
-			     	<figure class="figure product-overlay">
-						<a href="product_item.php?id=2">
-							<img src="img/2.jpg" class="card-img-top" alt="...">
-						</a>
-						<figcaption>
-				     		<h5 class="card-title">Card title</h5>
-				        	<p class="card-text">$50</p>
-						</figcaption>
-						<button class="form-button addtocart"><span>Add to cart</span></button>
-					</figure> 	
-			    </div>
-
-			    <div class="card dark">
-			     	<figure class="figure product-overlay">
-						<a href="product_item.php?id=5">
-							<img src="img/5.jpg" class="card-img-top" alt="...">
-						</a>
-						<figcaption>
-				     		<h5 class="card-title">Card title</h5>
-				        	<p class="card-text">$50</p>
-						</figcaption>
-						<button class="form-button addtocart"><span>Add to cart</span></button>
-					</figure> 	
-			    </div>
-
+		   
 			    <div class="card dark">
 			     	<figure class="figure product-overlay">
 						<a href="product_item.php?id=8">
@@ -101,36 +127,8 @@
 						<button class="form-button addtocart"><span>Add to cart</span></button>
 					</figure>
 				</div>
-		    </div>
 
-		    <div class="col">
-		    	<div class="card dark">
-			     	<figure class="figure product-overlay">
-						<a href="product_item.php?id=3">
-							<img src="img/3.jpg" class="card-img-top" alt="...">
-						</a>
-						<figcaption>
-				     		<h5 class="card-title">Card title</h5>
-				        	<p class="card-text">$50</p>
-						</figcaption>
-						<button class="form-button addtocart"><span>Add to cart</span></button>
-					</figure> 	
-			    </div>
-
-			    <div class="card dark">
-			     	<figure class="figure product-overlay">
-						<a href="product_item.php?id=6">
-							<img src="img/6.jpg" class="card-img-top" alt="...">
-						</a>
-						<figcaption>
-				     		<h5 class="card-title">Card title</h5>
-				        	<p class="card-text">$50</p>
-						</figcaption>
-						<button class="form-button addtocart"><span>Add to cart</span></button>
-					</figure> 	
-			    </div>
-
-			    <div class="card dark">
+				 <div class="card dark">
 			     	<figure class="figure product-overlay">
 						<a href="product_item.php?id=9">
 							<img src="img/9.jpg" class="card-img-top" alt="...">
@@ -142,7 +140,7 @@
 						<button class="form-button addtocart"><span>Add to cart</span></button>
 					</figure> 	
 			    </div>
-		    </div>
+			</div>
 		 </div>
 	</div>
 
