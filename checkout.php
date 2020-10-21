@@ -161,7 +161,7 @@
 						  	</div>
 						  </div>
 					  	
-					  	<button type="submit" class="form-button" style="margin: 2vh auto;">Place Order</button>
+					  	<button type="button" class="form-button" style="margin: 2vh auto;" data-toggle="modal" data-target="#myModal">Place Order</button>
 					</form>
 				</div>
 			</div>
@@ -217,13 +217,15 @@
 						<h5 style="font-size: 1.75em;">Total:</h5>
 						<h5 style="font-size: 1.5em;">$50</h5>
 					</div>
-
-					
-
-					
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	    	<?php include "parts/modal.php"; ?>
+	    </div>
 	</div>
 
 	<?php include "parts/footer.php"; ?>
