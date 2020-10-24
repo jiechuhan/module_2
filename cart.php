@@ -22,7 +22,7 @@
 			<div class="display-flex">
 				<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Cart Items</h1>
 				<div class="flex-stretch"></div>
-				<h1 class="itemTitle flex-none cart-price" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200; margin-right: 3vh;">Price</h1>
+				<h1 class="itemTitle flex-none cart-price" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200; margin-right: 3vh;">Total Price</h1>
 			</div>
 			<!-- <p>This is item # <?= $_GET['id'] ?> </p> -->
 			<hr style="margin-bottom: 3vh;">
@@ -39,7 +39,7 @@
 							<button class="addNumber">+</button>
 						</div>
 
-						<div class="price-holder" style="display: none"></div>
+						
 						<button class="form-button addtocart remove">Remove</button>
 					</div>
 					<div class="flex-stretch"></div>
@@ -47,6 +47,9 @@
 					</div>
 				</div>
 				<hr style="margin-top: 3vh; margin-bottom: 3vh;">
+
+				<div class="total-price-holder" style="display: none"></div>
+				<div class="price-holder" style="display: none"></div>
 			</div>
 
 			<!-- <div class="cart-card">
@@ -86,14 +89,21 @@
 
 	<script type="text/javascript">
 		function smallWindowPrice() {
+			$('.total-price-holder').css('display','block');
 			$('.price-holder').css('display','block');
 			$('#product-price').css('display','none');
+			$('.cart-price').css('display', 'none');
+			$(".total-price-holder").empty();
+			$(".total-price-holder").append($(".cart-price").text());
+			$(".total-price-holder").addClass("itemTitle");
+			$(".total-price-holder").css({"color": "#0D0D0D", "text-align": "left", "font-size": "1.5em", "font-weight": "200"});
 			$(".price-holder").empty();
 			$(".price-holder").append($("#product-price").text());
 			$(".price-holder").addClass("price-description");
 		};
 
 		function bigWindowPrice() {
+			$('.cart-price').css('display', 'block');
 			$('.price-holder').css('display','none'); 
 			$('#product-price').css('display','block'); 
 			$(".price-holder").empty();

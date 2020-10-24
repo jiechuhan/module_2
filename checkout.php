@@ -20,11 +20,13 @@
 		<div class="row">
 			<div class="col-sm-7">
 				<div class="card">
-					<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Shipping Address</h1>
+
+					<!-- <h1 class="itemTitle flex-none shipAddress" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Shipping Address</h1> -->
+					<span class="itemTitle flex-none shipAddress" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200; background-color: transparent; border: none; cursor: pointer;">Shipping Address</span>
 
 					<hr>
 
-					<form>
+					<form class="shippingAddress">
 					 	<div class="form-row">
 					 		<div class="form-group col-md-6">
 						    	<label for="inputFirstName">First Name</label>
@@ -73,17 +75,18 @@
 					  	</div>
 					  	
 					  	<div class="abstract" style="margin: 0px">
-					  		<a href="#paymentMethod" type="submit" class="form-button" style="margin: 2vh auto;"><span>Next</span></a>
+					  		<button class="form-button" style="margin: 2vh auto;" type="button">Next</button>
 					  </div>
 					</form>
 				</div>
 
 				<div class="card" id="paymentMethod">
-					<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Payment Method</h1>
+			<!-- 		<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Payment Method</h1> -->
+					<span class="itemTitle flex-none payMethod" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200; background-color: transparent; border: none; cursor: pointer;">Payment Method</span>
 
 					<hr>
 
-					<form>
+					<form id="paymentMethodForm" style="display: none;">
 						<div class="form-group">
 						    	<label for="inputName">Name</label>
 						    	<input type="text" class="form-control" id="inputName" placeholder="Name on card">
@@ -237,6 +240,21 @@
                 var inputValue = $(this).attr("value"); 
                 $("." + inputValue).toggle(); 
             }); 
+
+            $('.shipAddress').click(function() {
+            	$('.shippingAddress').slideDown();
+            });
+
+            $('.payMethod').click(function() {
+            	$('#paymentMethodForm').slideDown();
+            })
+
+            $('.abstract').click(function() {
+            	$('.shippingAddress').slideUp();
+            	$('#paymentMethodForm').slideDown();
+            });
+
+
         }); 
     </script> 
 
