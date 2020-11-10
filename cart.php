@@ -1,3 +1,14 @@
+<?php 
+
+	include_once "lib/php/functions.php";
+	include_once "parts/templates.php";
+		// include_once "parts/templates.php";
+	$cart = makeQuery(
+		makeConn(), 
+		"SELECT * FROM `products` WHERE `id` IN (1, 5, 8, 10) ");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +16,7 @@
 	<title>Cart - C&J Bakery</title>
 
 	<?php include "parts/meta.php"; ?>
+	<script src="js/cart_totalPrice.js"></script>
 </head>
 <body>
 	
@@ -18,76 +30,78 @@
 
 
 	<div class="container">
-		<div class="card soft">
-			<div class="display-flex">
-				<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Cart Items</h1>
-				<div class="flex-stretch"></div>
-				<h1 class="itemTitle flex-none cart-price" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200; margin-right: 3vh;">Total Price</h1>
-			</div>
-			<!-- <p>This is item # <?= $_GET['id'] ?> </p> -->
-			<hr style="margin-bottom: 3vh;">
-
-			<div class="cart-card">
-				<div class="item-card">
-					<img src="img/1.jpg">
-					<div class="cartItem flex-none">
-						<a href="product_item.php?id=1" class="price" style="color: #0D0D0D; text-align: left; font-size: 2em;">Item Title</p></a>
-						<div class="description" style="color: #0D0D0D; min-height: min-content; margin: 0">
-							Quantity:
-							<button class="addNumber">-</button>
-							<span>1</span>
-							<button class="addNumber">+</button>
-						</div>
-
-						
-						<button class="form-button addtocart remove">Remove</button>
+		<div class="row">
+			<div class="col-xs-12 col-md-8">
+				<div class="card soft">
+					<div class="display-flex">
+						<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Cart Items</h1>
+						<div class="flex-stretch"></div>
+						<h1 class="itemTitle flex-none cart-price" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200; margin-right: 3vh;">Total Price</h1>
 					</div>
-					<div class="flex-stretch"></div>
-					<div class="description flex-none" id="product-price" style="color: #0D0D0D; min-height: min-content; margin-top: 0; margin-right: 4vh">$50
+					<!-- <p>This is item # <?= $_GET['id'] ?> </p> -->
+					<hr style="margin-bottom: 3vh;">
+
+					<div class="cart-card">
+
+						<?= array_reduce($cart, 'cartListTemplate') ?>
+
+						<div class="total-price-holder" style="display: none"></div>
+						<div class="price-holder" style="display: none"></div>
 					</div>
+
+					
+
 				</div>
-				<hr style="margin-top: 3vh; margin-bottom: 3vh;">
-
-				<div class="total-price-holder" style="display: none"></div>
-				<div class="price-holder" style="display: none"></div>
 			</div>
 
-			<!-- <div class="cart-card">
-				<div class="item-card">
-					<img src="img/1.jpg">
-					<div class="cartItem flex-none">
-						<p class="price" style="color: #0D0D0D; text-align: left; font-size: 2em;">Item Title</p>
-						<div class="description" style="color: #0D0D0D; min-height: min-content; margin: 0">
-							Quantity:
-							<button class="addNumber">-</button>
-							<span>1</span>
-							<button class="addNumber">+</button>
+			<div class="col-xs-12 col-md-4">
+				<div class="card soft">
+					<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Order Summary</h1>
+					<hr>
+
+					<div class="addUp">
+						<div class="d-flex justify-content-between">
+							<p>Subtotal:</p>
+							<p>$50</p>
 						</div>
-						<button class="form-button addtocart" style="margin-top: 10vh;">Remove</button>
+						<div class="d-flex justify-content-between">
+							<p>Shipping/Delivery:</p>
+							<p>$50</p>
+						</div>
+						<div class="d-flex justify-content-between">
+							<p>Taxes:</p>
+							<p>$50</p>
+						</div>
 					</div>
-					<div class="flex-stretch"></div>
-					<div class="description flex-none" style="color: #0D0D0D; min-height: min-content; margin-top: 0; margin-right: 4vh">$50</div>
+
+					<hr>
+
+					<div class="d-flex justify-content-between">
+						<h5 style="font-size: 1.75em;">Total:</h5>
+						<h5 style="font-size: 1.5em;">$50</h5>
+					</div>
 				</div>
-				<hr style="margin-top: 3vh; margin-bottom: 3vh;">
-			</div> -->
+			</div>
 		</div>
 
-		<div class="checkout-button">
-			<div class="flex-none abstract" style="margin-top: 0;">
-				<a href="product_list.php" class="form-button checkout"><span>Continue Shopping</span></a>
-			</div>
+		<div class="col-xs-12 col-md-8">
+			<div class="checkout-button">
+				<div class="flex-none abstract" style="margin-top: 0;">
+					<a href="product_list.php" class="form-button checkout"><span>Continue Shopping</span></a>
+				</div>
 
-			<div class="flex-stretch"></div>
+				<div class="flex-stretch"></div>
 
-			<div class="flex-none abstract" style="margin-top: 0;">
-				<a href="checkout.php" class="form-button checkout"><span>Check Out</span></a>
+				<div class="flex-none abstract" style="margin-top: 0;">
+					<a href="checkout.php" class="form-button checkout"><span>Check Out</span></a>
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<?php include "parts/footer.php"; ?>
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		function smallWindowPrice() {
 			$('.total-price-holder').css('display','block');
 			$('.price-holder').css('display','block');
@@ -125,6 +139,6 @@
 				}
 			});
 		});		
-	</script>
+	</script> -->
 </body>
 </html>

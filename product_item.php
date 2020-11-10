@@ -1,3 +1,18 @@
+<?php 
+
+	include_once "lib/php/functions.php";
+		// include_once "parts/templates.php";
+	$product = makeQuery(
+		makeConn(), 
+		"SELECT * FROM `products` WHERE `id` =".$_GET['id'])[0];
+
+	// print_p($product);
+	$images = explode(",", $product->images);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +40,13 @@
 	 					
 	 					 <div class="carousel-inner">
 						    <div class="carousel-item active">
-						    	<img class="d-block w-100" src="img/1.jpg" alt="First slide">
+						    	<img class="d-block w-100" src="img/<?= $images[0] ?>" alt="First slide">
 						    </div>
 						    <div class="carousel-item">
-						    	<img class="d-block w-100" src="img/2.jpg" alt="Second slide">
+						    	<img class="d-block w-100" src="img/<?= $images[1] ?>" alt="Second slide">
 						    </div>
 						    <div class="carousel-item">
-						    	<img class="d-block w-100" src="img/3.jpg" alt="Third slide">
+						    	<img class="d-block w-100" src="img/<?= $images[2] ?>" alt="Third slide">
 						    </div>
 	  					</div>
 					 	
@@ -49,14 +64,14 @@
             
             <div class="col-sm">
                 <div class="col-sm">
-                    <h1 class="itemTitle">Item <?= $_GET['id'] ?></h1>
+                    <h1 class="itemTitle"><?= $product->name ?></h1>
                     <div class="description">
-                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    	<?= $product->description ?>
                     </div>
-                    <p class="price">Price:</p>
-                    <Button class="form-button addtocart detailButton">
-                    	<span>Add to cart</span>
-                    </Button>
+                    <p class="price">Price: &dollar;<?= $product->price ?></p>
+                    <a href="product_added_to_cart.php?id=<?= $product->id ?>" class="form-button addtocart detailButton">
+                    	<span style="padding-top: 7.5px;">Add to cart</span>
+                    </a>
                 </div>
             </div>
         </div>
