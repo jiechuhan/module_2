@@ -1,3 +1,10 @@
+<?php 
+
+	include_once "lib/php/functions.php"; 
+	include_once "parts/templates.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,16 +34,14 @@
 
 			    <?php 
 
-				include_once "lib/php/functions.php";
-				include_once "parts/templates.php";
-
 				$result = makeQuery(
 					makeConn(),
 					"
 					SELECT *
 					FROM `products`
+					GROUP BY `name`
 					ORDER BY `date_create` DESC
-					LIMIT 12
+					-- LIMIT 12
 					"
 				);
 
@@ -51,7 +56,7 @@
 	<?php include "parts/footer.php"; ?>
 
 	<script type="text/javascript">
-    	$(function(){each($('img'),function(i,item){$(item).width('250');$(item).height('250')});});
+    	$(function(){$.each($('img'),function(i,item){$(item).width('250');$(item).height('250')});});
     </script>
 
 </body>

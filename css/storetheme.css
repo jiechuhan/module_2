@@ -35,6 +35,16 @@ h4 {
 	position: relative;
 }
 
+/* CART BADGE*/
+
+span.badge:not(:empty)::before {
+	content: '(';
+}
+
+span.badge:not(:empty)::after {
+	content: ')';
+}
+
 
 /* HERO IMAGE */
 .heroimage {

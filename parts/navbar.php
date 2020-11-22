@@ -8,7 +8,10 @@
 	<ul class="nav justify-content-end">
 		<li><a href="#article1">Location</a></li>
 		<li><a href="#article2"><i class="fas fa-map-marker-alt"></i><span>Login<span></a></li>
-		<li><a href="cart.php">Cart</a></li>
+		<li><a href="cart.php">
+			<span>Cart</span>
+			<span class="badge"><?= makeCartBadge(); ?></span>
+		</a></li>
 	</ul>
 
 </div>

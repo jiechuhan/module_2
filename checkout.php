@@ -1,3 +1,5 @@
+<?php include_once "lib/php/functions.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,7 +166,13 @@
 						  	</div>
 						  </div>
 					  	
-					  	<button type="button" class="form-button" style="margin: 2vh auto;" data-toggle="modal" data-target="#myModal">Place Order</button>
+					 <!--  	<a href="confirmation.php" type="button" class="form-button" style="margin: 2vh auto;">Place Order</a> -->
+
+
+					 	<div class="abstract" style="margin: 0px">
+					  		<a href="confirmation.php" type="button" class="form-button" type="button" class="form-button" style="margin: 2vh auto;">
+					  		<span>Place Order</span></a>
+					  	</div>
 					</form>
 				</div>
 			</div>
@@ -174,15 +182,13 @@
 					<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Order Summary</h1>
 					<hr>
 
-					<div>
+					<!-- <div>
 						<div class="display-flex">
 							<div class="flex-none">
 								<h5 class="price" style="color: #0D0D0D; text-align: left; font-size: 1.5em;">Title</h5>
 								<div class="description" style="color: #0D0D0D; min-height: min-content; margin: 0">
 									Quantity:
-									<button class="addNumber">-</button>
 									<span>1</span>
-									<button class="addNumber">+</button>
 								</div>
 							</div>
 							<div class="flex-stretch"></div>
@@ -192,9 +198,6 @@
 							</div>
 						</div>
 
-						<div style="margin-top: 2vh;">
-							<button class="form-button addtocart">Remove</button>
-						</div>
 					</div>
 
 					<hr>
@@ -214,21 +217,15 @@
 						</div>
 					</div>
 
-					<hr>
+					<hr> -->
 
 					<div class="d-flex justify-content-between">
 						<h5 style="font-size: 1.75em;">Total:</h5>
-						<h5 style="font-size: 1.5em;">$50</h5>
+						<h5 id="TotalPrice" style="font-size: 1.5em;">$50</h5>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="modal fade" id="myModal" role="dialog">
-	    <div class="modal-dialog">
-	    	<?php include "parts/modal.php"; ?>
-	    </div>
 	</div>
 
 	<?php include "parts/footer.php"; ?>
@@ -253,6 +250,11 @@
             	$('.shippingAddress').slideUp();
             	$('#paymentMethodForm').slideDown();
             });
+
+
+            $("#TotalPrice").text( "$" +
+            	window.location.href.split('$')[1]
+            );
 
 
         }); 

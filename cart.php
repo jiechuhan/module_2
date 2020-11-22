@@ -2,10 +2,12 @@
 
 	include_once "lib/php/functions.php";
 	include_once "parts/templates.php";
-		// include_once "parts/templates.php";
-	$cart = makeQuery(
-		makeConn(), 
-		"SELECT * FROM `products` WHERE `id` IN (1, 5, 8, 10) ");
+
+	$cart_items = getCartItems();
+
+	// print_p($_SESSION['cart']);
+	// print_p($cart_items);
+
 ?>
 
 
@@ -19,6 +21,16 @@
 	<script src="js/cart_totalPrice.js"></script>
 </head>
 <body>
+	<script>
+		var goToCheckout = function(){
+			$('#CheckOut').click(function(){
+				window.open('checkout.php?total=' + 
+					$("#totalPrice").text() 
+					);
+			  	return false;
+			});
+		}
+	</script>
 	
 	<?php include "parts/navbar.php"; ?>
 	<?php include "parts/title.php"; ?>
@@ -43,7 +55,7 @@
 
 					<div class="cart-card">
 
-						<?= array_reduce($cart, 'cartListTemplate') ?>
+						<?= array_reduce($cart_items, 'cartListTemplate') ?>
 
 						<div class="total-price-holder" style="display: none"></div>
 						<div class="price-holder" style="display: none"></div>
@@ -55,32 +67,7 @@
 			</div>
 
 			<div class="col-xs-12 col-md-4">
-				<div class="card soft">
-					<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Order Summary</h1>
-					<hr>
-
-					<div class="addUp">
-						<div class="d-flex justify-content-between">
-							<p>Subtotal:</p>
-							<p>$50</p>
-						</div>
-						<div class="d-flex justify-content-between">
-							<p>Shipping/Delivery:</p>
-							<p>$50</p>
-						</div>
-						<div class="d-flex justify-content-between">
-							<p>Taxes:</p>
-							<p>$50</p>
-						</div>
-					</div>
-
-					<hr>
-
-					<div class="d-flex justify-content-between">
-						<h5 style="font-size: 1.75em;">Total:</h5>
-						<h5 style="font-size: 1.5em;">$50</h5>
-					</div>
-				</div>
+				<?= cartTotals() ?>
 			</div>
 		</div>
 
@@ -93,7 +80,7 @@
 				<div class="flex-stretch"></div>
 
 				<div class="flex-none abstract" style="margin-top: 0;">
-					<a href="checkout.php" class="form-button checkout"><span>Check Out</span></a>
+					<a id="CheckOut" class="form-button checkout" onclick="goToCheckout();"><span>Check Out</span></a>
 				</div>
 			</div>
 		</div>
@@ -101,44 +88,5 @@
 
 	<?php include "parts/footer.php"; ?>
 
-	<!-- <script type="text/javascript">
-		function smallWindowPrice() {
-			$('.total-price-holder').css('display','block');
-			$('.price-holder').css('display','block');
-			$('#product-price').css('display','none');
-			$('.cart-price').css('display', 'none');
-			$(".total-price-holder").empty();
-			$(".total-price-holder").append($(".cart-price").text());
-			$(".total-price-holder").addClass("itemTitle");
-			$(".total-price-holder").css({"color": "#0D0D0D", "text-align": "left", "font-size": "1.5em", "font-weight": "200"});
-			$(".price-holder").empty();
-			$(".price-holder").append($("#product-price").text());
-			$(".price-holder").addClass("price-description");
-		};
-
-		function bigWindowPrice() {
-			$('.cart-price').css('display', 'block');
-			$('.price-holder').css('display','none'); 
-			$('#product-price').css('display','block'); 
-			$(".price-holder").empty();
-		};
-
-
-		$(function(){
-			if(window.matchMedia("(max-width: 800px)").matches) {
-				smallWindowPrice();
-			}  else {
-				bigWindowPrice();
-			};
-
-			$(window).on('resize', function(){ 
-				if(window.matchMedia("(max-width: 800px)").matches) {
-					smallWindowPrice();
-				}  else {
-					bigWindowPrice();
-				}
-			});
-		});		
-	</script> -->
 </body>
 </html>

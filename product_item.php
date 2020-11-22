@@ -9,6 +9,8 @@
 	// print_p($product);
 	$images = explode(",", $product->images);
 
+	// print_p($_SESSION);
+
 ?>
 
 
@@ -63,16 +65,44 @@
             </div>
             
             <div class="col-sm">
-                <div class="col-sm">
-                    <h1 class="itemTitle"><?= $product->name ?></h1>
+                <form class="col-sm" method="post" action="cart_actions.php?action=add-to-cart">
+
+                	<input type="hidden" name="product-id" value="<?= $product->id ?>">
+
+                	<input type="hidden" name="product-name" value="<?= $product->name ?>">
+                    <h1 id="product-name" name="product-name" class="itemTitle"><?= $product->name ?></h1>
                     <div class="description">
                     	<?= $product->description ?>
                     </div>
                     <p class="price">Price: &dollar;<?= $product->price ?></p>
-                    <a href="product_added_to_cart.php?id=<?= $product->id ?>" class="form-button addtocart detailButton">
-                    	<span style="padding-top: 7.5px;">Add to cart</span>
-                    </a>
-                </div>
+
+                    <label for="product-amount" class="form-label">Amount</label>
+					<div class="form-select">
+						<select id="product-amount" name="product-amount">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+						</select>
+					</div>
+
+					<label for="product-size" class="form-label">Size</label>
+					<div class="form-select">
+						<select id="product-size" name="product-size">
+							<option>large</option>
+							<option>small</option>
+						</select>
+					</div>
+
+					<input type="hidden" id="idBySize" name="idBySize" value="">
+                    <input type="submit" class="form-button addtocart detailButton" style="padding-top: 7.5px;" value="Add To Cart">
+                </form>
             </div>
         </div>
 	</div>

@@ -19,7 +19,7 @@ function bigWindowPrice() {
 	$('.cart-price').css('display', 'block');
 	$('.description.flex-none').show();
 	$('.smallWindowPrice').hide();
-	$(".cart-remove").css('margin-top', '10vh');
+	$(".cart-remove").css('margin-top', '3vh');
 	// $('.price-holder').css('display','none'); 
 	// $('#product-price').css('display','block'); 
 	// $(".price-holder").empty();
@@ -40,4 +40,6 @@ $(function(){
 			bigWindowPrice();
 		}
 	});
+
+	
 });		
