@@ -265,6 +265,14 @@ span.badge:not(:empty)::after {
 }
 
 
+/* ADMIN */
+.images-thumb img {
+	width: 8em;
+	height: 6em;
+	object-fit: contain;
+}
+
+
 /* FOOTER */
 .footer {
 	margin: 0;

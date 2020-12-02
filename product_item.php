@@ -1,7 +1,7 @@
 <?php 
 
 	include_once "lib/php/functions.php";
-		// include_once "parts/templates.php";
+	include_once "parts/templates.php";
 	$product = makeQuery(
 		makeConn(), 
 		"SELECT * FROM `products` WHERE `id` =".$_GET['id'])[0];
@@ -105,6 +105,11 @@
                 </form>
             </div>
         </div>
+
+        <h2>Recommended Products</h2>
+			<?php 
+				recommendedSimilar($product->category, $product->id);
+			 ?>
 	</div>
 
 	<?php include "parts/footer.php"; ?>

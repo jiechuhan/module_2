@@ -66,7 +66,7 @@
 
 
 
-		    <div class="col-sm-9 d-flex flex-wrap justify-content-left productlist">				 
+		    <div class="col-sm-9 d-flex flex-wrap justify-content-left productlist">			 
 			</div>
 
 		 </div>

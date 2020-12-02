@@ -90,9 +90,9 @@
 
 					<form id="paymentMethodForm" style="display: none;">
 						<div class="form-group">
-						    	<label for="inputName">Name</label>
-						    	<input type="text" class="form-control" id="inputName" placeholder="Name on card">
-						    </div>
+					    	<label for="inputName">Name</label>
+					    	<input type="text" class="form-control" id="inputName" placeholder="Name on card">
+						</div>
 
 					  	<div class="form-group">
 					      	<label for="inputCardNumber">Card Number</label>
