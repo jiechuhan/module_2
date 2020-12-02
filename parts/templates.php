@@ -130,7 +130,7 @@ function cartTotals() {
 function recommendedProducts($a) {
 	$products = array_reduce($a, 'productListTemplate');
 	echo <<<HTML
-		<div class="grid gap productlist">$products</div>
+		<div class="d-flex flex-wrap justify-content-center productlist">$products</div>
 	HTML;
 }
 
