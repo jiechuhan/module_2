@@ -4,6 +4,7 @@
 	include_once "parts/templates.php";
 
 	$cart_items = getCartItems();
+	$cart = getCart();
 
 	// print_p($_SESSION['cart']);
 	// print_p($cart_items);
@@ -53,6 +54,8 @@
 					<!-- <p>This is item # <?= $_GET['id'] ?> </p> -->
 					<hr style="margin-bottom: 3vh;">
 
+
+				<?php if(count($cart)) { ?>
 					<div class="cart-card">
 
 						<?= array_reduce($cart_items, 'cartListTemplate') ?>
@@ -60,30 +63,65 @@
 						<div class="total-price-holder" style="display: none"></div>
 						<div class="price-holder" style="display: none"></div>
 					</div>
+				</div>
 
+				<div class="checkout-button">
+					<div class="flex-none abstract" style="margin-top: 0;">
+						<a href="product_list.php" class="form-button checkout"><span>Continue Shopping</span></a>
+					</div>
+
+					<div class="flex-stretch"></div>
+
+					<div class="flex-none abstract" style="margin-top: 0;">
+						<a id="CheckOut" class="form-button checkout" onclick="goToCheckout();"><span>Check Out</span></a>
+					</div>
+				</div>
+
+				<?php 
+					} else {
+				?> 
+
+					<h2>No items in cart</h2>
 					
 
-				</div>
+					</div>
+
+					<div class="checkout-button">
+						<div class="flex-none abstract" style="margin-top: 0;">
+							<a href="product_list.php" class="form-button checkout"><span>Continue Shopping</span></a>
+						</div>
+
+						<div class="flex-stretch"></div>
+
+						<div class="flex-none abstract" style="margin-top: 0;">
+							<a id="CheckOut" class="form-button checkout" onclick="goToCheckout();"><span>Check Out</span></a>
+						</div>
+					</div>
+
+					<div class="card soft">
+
+						<h2>Other Recommendations</h2>
+						<?php recommendedAnything(6); ?>
+
+					</div>
+
+						<?php } ?>
+				
+
+				
+
 			</div>
 
 			<div class="col-xs-12 col-md-4">
-				<?= cartTotals() ?>
-			</div>
-		</div>
-
-		<div class="col-xs-12 col-md-8">
-			<div class="checkout-button">
-				<div class="flex-none abstract" style="margin-top: 0;">
-					<a href="product_list.php" class="form-button checkout"><span>Continue Shopping</span></a>
-				</div>
-
-				<div class="flex-stretch"></div>
-
-				<div class="flex-none abstract" style="margin-top: 0;">
-					<a id="CheckOut" class="form-button checkout" onclick="goToCheckout();"><span>Check Out</span></a>
+				<div class="card soft">
+					<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Order Summary</h1>
+					<hr>
+					
+					<?= cartTotals() ?>
 				</div>
 			</div>
 		</div>
+
 	</div>
 
 	<?php include "parts/footer.php"; ?>

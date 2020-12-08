@@ -2,8 +2,7 @@
 
 function productListTemplate($r, $o) {
 	return $r.<<<HTML
-
-		<div class="card dark">
+		<div style="margin: 15px;">
 	     	<figure class="figure product-overlay">
 				<a href="product_item.php?id=$o->id">
 					<img class="img" src="img/$o->thumbnail" alt="" intrinsicsize="250 x 250">
@@ -12,11 +11,13 @@ function productListTemplate($r, $o) {
 		     		<h5 class="card-title">$o->name</h5>
 		        	<p class="card-text">&dollar;$o->price</p>
 				</figcaption>
-				<a href="product_added_to_cart.php?id=$o->id" class="form-button addtocart"><span style="padding-top: 7.5px;">Add to cart</span></a>
+
 			</figure>
 	    </div>    
 	HTML;
 }
+
+// <a href="product_added_to_cart.php?id=$o->id" class="form-button addtocart"><span style="padding-top: 7.5px;">Add to cart</span></a>
 
 
 function selectAmount($amount=1, $total=10) {
@@ -35,7 +36,6 @@ function cartListTemplate($r,$o) {
 	$selectAmount = selectAmount($o->amount, 10);
 
 	return $r.<<<HTML
-
 		<div class="item-card">
 			<img src="img/$o->thumbnail">
 			<div class="cartItem flex-none">
@@ -59,7 +59,6 @@ function cartListTemplate($r,$o) {
 
 				</div>
 
-
 				<div class="display-flex">
 					<h1 class="smallWindowPrice flex-none itemTitle" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200; margin-right: 3vh;">Total Price</h1>
 					<div class="smallWindowPrice flex-stretch"></div>
@@ -74,7 +73,6 @@ function cartListTemplate($r,$o) {
 			<div class="description flex-none" style="color: #0D0D0D; min-height: min-content; margin-top: 0; margin-right: 4vh">&dollar;$totalfixed</div>
 		</div>
 		<hr style="margin-top: 3vh; margin-bottom: 3vh;">
-
 	HTML;
 }
 
@@ -94,36 +92,28 @@ function cartTotals() {
 
 
 	return <<<HTML
-			
-			<div class="card soft">
-					<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Order Summary</h1>
-					<hr>
+		<div class="addUp">
+			<div class="d-flex justify-content-between">
+				<p>Subtotal:</p>
+				<p>&dollar;$pricefixed</p>
+			</div>
+			<div class="d-flex justify-content-between">
+				<p>Shipping/Delivery:</p>
+				<p>&dollar;$shipping</p>
+			</div>
+			<div class="d-flex justify-content-between">
+				<p>Taxes:</p>
+				<p>&dollar;$taxfixed</p>
+			</div>
+		</div>
 
-					<div class="addUp">
-						<div class="d-flex justify-content-between">
-							<p>Subtotal:</p>
-							<p>&dollar;$pricefixed</p>
-						</div>
-						<div class="d-flex justify-content-between">
-							<p>Shipping/Delivery:</p>
-							<p>&dollar;$shipping</p>
-						</div>
-						<div class="d-flex justify-content-between">
-							<p>Taxes:</p>
-							<p>&dollar;$taxfixed</p>
-						</div>
-					</div>
+		<hr>
 
-					<hr>
-
-					<div class="d-flex justify-content-between">
-						<h5 style="font-size: 1.75em;">Total:</h5>
-						<h5 id="totalPrice" style="font-size: 1.5em;">&dollar;$taxedfixed</h5>
-					</div>
-				</div>
-
+		<div class="d-flex justify-content-between">
+			<h5 style="font-size: 1.75em;">Total:</h5>
+			<h5 id="totalPrice" style="font-size: 1.5em;">&dollar;$taxedfixed</h5>
+		</div>
 	HTML;
-
 }
 
 
@@ -132,6 +122,12 @@ function recommendedProducts($a) {
 	echo <<<HTML
 		<div class="d-flex flex-wrap justify-content-center productlist">$products</div>
 	HTML;
+}
+
+
+function recommendedAnything($limit=3) {
+	$result = makeQuery(makeConn(), "SELECT * FROM `products` ORDER BY rand() DESC LIMIT $limit ");
+	recommendedProducts($result);
 }
 
 
@@ -145,8 +141,5 @@ function recommendedSimilar($cat, $id=0, $limit=3) {
 	$result = makeQuery(makeConn(), "SELECT * FROM `products` WHERE `category` = '$cat' AND `id`<>$id ORDER BY rand() DESC LIMIT $limit ");
 	recommendedProducts($result);
 }
-
-
-
 
  ?>

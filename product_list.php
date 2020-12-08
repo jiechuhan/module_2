@@ -49,33 +49,34 @@
 		</div>
 
 		<div class="row">
-
-			<!-- row-cols-1 row-cols-sm-2 row-cols-md-4 -->
 		    <div class="col-sm-3 dropdownmenu">
-<!-- 		    	<select class="js-sort dropdown-item form-button menu">
-					<option value="1">Newest</option>
-					<option value="2">Oldest</option>
-					<option value="3">Price Low to High</option>
-					<option value="4">Price High to Low</option>
-				</select> -->
 		    	<button data-filter="category" data-value="" type="button" class="dropdown-item form-button menu"><span>All</span></button>
 		    	<button data-filter="category" data-value="cake" type="button" class="dropdown-item form-button menu"><span>CAKE</span></button>
 		    	<button data-filter="category" data-value="bakery" type="button" class="dropdown-item form-button menu"><span>BAKERY</span></button>
 		    	<button data-filter="category" data-value="drink" type="button" class="dropdown-item form-button menu"><span>DRINK</span></button>
 		    </div>
 
-
-
-		    <div class="col-sm-9 d-flex flex-wrap justify-content-left productlist">			 
+		    <div class="col-sm-9 d-flex flex-wrap justify-content-left productlist" id="productList">			 
 			</div>
-
 		 </div>
 	</div>
 
 	<?php include "parts/footer.php"; ?>
 
 	<script type="text/javascript">
-    	$(function(){$.each($('img'),function(i,item){$(item).width('250');$(item).height('250')});});
+    	// $(function(){$.each($('img'),function(i,item){$(item).width('250');$(item).height('250')});});
+
+    	$(function(){
+			if(window.matchMedia("(max-width: 500px)").matches) {
+				$('#productList').removeClass("justify-content-left").addClass("justify-content-center");
+			}
+
+			$(window).on('resize', function(){ 
+				if(window.matchMedia("(max-width: 500px)").matches) {
+					$('#productList').removeClass("justify-content-left").addClass("justify-content-center");
+				} 
+			});
+		});
     </script>
 
 </body>

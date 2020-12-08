@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	<header class="navbar">
+	<header class="navbar" style="line-height: inherit;">
 		<div class="container display-flex">
 			<div class="flex-none">
 				<h5>Styleguide</h5>
@@ -27,14 +27,16 @@
 				<!-- nav.nav>ul>li*4>a[href=#article$]>{Link $} -->
 				<div class="flex-stretch"></div>
 				<nav class="flex-none nav">
-					<ul class="container display-flex">
+					<ul>
 						<li class="content"><a href="#tableofcontents">Table of Contents</a></li>
 					</ul>
 				</nav>
 		</div>
 	</header>
 
-	<div class="container" id="tableofcontents">
+
+
+	<div class="container" id="tableofcontents" style="margin-top: 15vh";>
 		
 		<h4>Table of Contents</h4>
 		<div class="card">
@@ -139,7 +141,7 @@
 				const links = ['Order', 'Blog', 'Contact'];
 				let ran=Math.floor(Math.random()*links.length);
 				document.write( `
-					<div class="navbar">
+					<div class="">
 						<nav class="${classes}">
 							<ul>
 							${links.reduce((r,o,i) => {

@@ -6,7 +6,7 @@
 <div class="container">    
       <!-- Modal content-->
 
-      <div class="modal-content" style="width: 50%; margin: 0 auto;">
+      <div class="modal-content" style="width: 80%; margin: 0 auto;">
         <div class="modal-header">
           <h2 class="modal-title">Thanks for your order!</h2>
         </div>

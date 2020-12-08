@@ -8,9 +8,11 @@ const listItemTemplate = templater( o => `
 	     		<h5 class="card-title">${o.name}</h5>
 	        	<p class="card-text">&dollar;${o.price}</p>
 			</figcaption>
-			<a href="product_added_to_cart.php?id=${o.id}" class="form-button addtocart">
-				<span style="padding-top: 7.5px;">Add to cart</span>
-			</a>
+			
 		</figure>
     </div>    
 `);
+
+// <a href="product_added_to_cart.php?id=${o.id}&amount=1&size=small" class="form-button addtocart">
+// 	<span style="padding-top: 7.5px;">Add to cart</span>
+// </a>

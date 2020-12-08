@@ -108,9 +108,11 @@
 
         <div style="margin-top: 10vh;">	
 	        <h2 style="color: white; text-align: center;">Recommended Products</h2>
-			<?php 
-				recommendedSimilar($product->category, $product->id);
-			 ?> 
+	        <div class="card soft">
+				<?php 
+					recommendedSimilar($product->category, $product->id);
+			 	?> 
+			</div>
 		</div>
 
         

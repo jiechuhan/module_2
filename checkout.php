@@ -1,4 +1,9 @@
-<?php include_once "lib/php/functions.php"; ?>
+<?php 
+	include_once "lib/php/functions.php";
+	include_once "parts/templates.php"; 
+	
+	$cart = getCartItems();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +25,41 @@
 
 	<div class="container">
 		<div class="row">
+			<div class="col-sm-5">
+				<div class="card">
+					<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Order Summary</h1>
+					<hr>
+
+					<?php 
+
+						echo array_reduce($cart, function($r, $o) {
+						$totalfixed = number_format($o->total, 2, '.' , '');
+						return $r."
+							<div class='display-flex'>
+							<div class='flex-none'>
+								<h5 class='price' style='color: #0D0D0D; text-align: left; font-size: 1.5em;'>$o->name</h5>
+								<div class='description' style='color: #0D0D0D; min-height: min-content; margin: 0'>
+									Quantity:
+									<span>1</span>
+								</div>
+							</div>
+							<div class='flex-stretch'></div>
+							<div class='flex-none'>
+								<div class='description flex-none' id='product-price' style='color: #0D0D0D; min-height: min-content; margin-top: 0;'>$50
+								</div>
+							</div>
+						</div>
+						";
+					}) ?>
+
+					<hr>
+
+					<?= cartTotals(); ?>
+
+				</div>
+			</div>
+
+
 			<div class="col-sm-7">
 				<div class="card">
 
@@ -174,55 +214,6 @@
 					  		<span>Place Order</span></a>
 					  	</div>
 					</form>
-				</div>
-			</div>
-			
-			<div class="col-sm-5">
-				<div class="card">
-					<h1 class="itemTitle flex-none" style="color: #0D0D0D; text-align: left; font-size: 1.5em; font-weight: 200">Order Summary</h1>
-					<hr>
-
-					<!-- <div>
-						<div class="display-flex">
-							<div class="flex-none">
-								<h5 class="price" style="color: #0D0D0D; text-align: left; font-size: 1.5em;">Title</h5>
-								<div class="description" style="color: #0D0D0D; min-height: min-content; margin: 0">
-									Quantity:
-									<span>1</span>
-								</div>
-							</div>
-							<div class="flex-stretch"></div>
-							<div class="flex-none">
-								<div class="description flex-none" id="product-price" style="color: #0D0D0D; min-height: min-content; margin-top: 0;">$50
-								</div>
-							</div>
-						</div>
-
-					</div>
-
-					<hr>
-
-					<div class="addUp">
-						<div class="d-flex justify-content-between">
-							<p>Subtotal:</p>
-							<p>$50</p>
-						</div>
-						<div class="d-flex justify-content-between">
-							<p>Shipping/Delivery:</p>
-							<p>$50</p>
-						</div>
-						<div class="d-flex justify-content-between">
-							<p>Taxes:</p>
-							<p>$50</p>
-						</div>
-					</div>
-
-					<hr> -->
-
-					<div class="d-flex justify-content-between">
-						<h5 style="font-size: 1.75em;">Total:</h5>
-						<h5 id="TotalPrice" style="font-size: 1.5em;">$50</h5>
-					</div>
 				</div>
 			</div>
 		</div>

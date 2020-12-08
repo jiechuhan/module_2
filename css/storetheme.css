@@ -16,7 +16,6 @@
 
 body {
 	background-color: var(--color-neutral-dark);
-/*	color: var(--color-white);*/
 	padding-bottom: 2em;
 }
 
@@ -304,10 +303,6 @@ span.badge:not(:empty)::after {
 		margin: 20px;
 	}
 
-/*	.cart-price {
-		display: none;
-	}*/
-
 	.remove {
 		margin-top: 1vh;
 	}
@@ -317,12 +312,29 @@ span.badge:not(:empty)::after {
 	}
 }
 
-@media (max-width: 400px) {
+.menu-button label {
+	display: none;
+}
+
+@media (max-width: 500px) {
 	.navbar .display-flex {
 		display: block;
 	}
 
+	.navbar .justify-content-end {
+		display: none;
+	}
+
 	.navbar .nav li {
 		line-height: 2em;
+	}
+
+	.menu-button label {
+		display: block;
+		padding: 0 1em;
+	}
+
+	#menu:checked+.navbar .nav {
+		display: block;
 	}
 }

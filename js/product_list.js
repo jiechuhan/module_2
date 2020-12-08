@@ -1,4 +1,3 @@
-
 const showResults = d => {
 	$(".productlist").html(
 		d.error ? d.error : 
@@ -37,10 +36,4 @@ $(() => {
 			query({type: "prodcuts_all"})
 		).then(showResults);
 	})
-
-
-
-
-
-
 })
