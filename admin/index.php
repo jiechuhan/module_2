@@ -16,8 +16,10 @@
 	// LOGIC
 	try {
 		$conn = makePDOConn();
+		
+		$action = isset($_GET['action']) ? $_GET['action'] : null;
 
-		switch ($_GET['action']) {
+		switch ($action) {
 			case 'update':
 				$statement = $conn->prepare("UPDATE 
 					`products` 
@@ -229,7 +231,7 @@
 		$delete = $id == "new" ? "" : "<a href='{$_SERVER['PHP_SELF']}?id=$id&action=delete'>Delete</a>";
 
 		echo <<<HTML
-			<div class='card soft'>
+			<div class='card soft' style="margin-top: 10vh;">
 				<nav class="display-flex">
 					<div class="flex-stretch">
 						<a href="{$_SERVER['PHP_SELF']}">Back</a>
@@ -248,6 +250,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../img/cj.ico" type="image/x-icon"/>
 
 <!-- CSS STYLESHEET -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -260,7 +263,6 @@
 
 	<!-- INCON -->
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="shortcut icon" href="img/cj.ico" type="image/x-icon"/>
 	<script src="https://kit.fontawesome.com/b94e5be0e6.js" crossorigin="anonymous"></script>
 
 	<!-- JQUERY -->
@@ -298,7 +300,7 @@
 
 		 ?>
 
-		<div class="title" style="margin-top: 20px;">
+		<div class="title" style="margin-top: 10vh;">
 			<h1>Product List</h1>
 		</div>
 
